@@ -20,4 +20,7 @@ df['Salary'] = [50000, 60000, 70000]
 # 열 삭제
 df = df.drop('City', axis=1)
 
+# 데이터 정렬
+df = df.sort_values(by='Age')
+
 print(df)
