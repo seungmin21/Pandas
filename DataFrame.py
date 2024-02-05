@@ -17,4 +17,7 @@ df = pd.DataFrame(data)
 # 열 추가
 df['Salary'] = [50000, 60000, 70000]
 
+# 열 삭제
+df = df.drop('City', axis=1)
+
 print(df)
