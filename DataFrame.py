@@ -7,4 +7,7 @@ df = pd.DataFrame(data)
 #print(df)
 
 # 열 선택
-print(df['Name'])
+#print(df['Name'])
+
+# 행 선택
+print(df.loc[0])
