@@ -10,4 +10,7 @@ df = pd.DataFrame(data)
 #print(df['Name'])
 
 # 행 선택
-print(df.loc[0])
+#print(df.loc[0])
+
+# 조건에 따른 데이터 선택
+print(df[df['Age'] > 30])
