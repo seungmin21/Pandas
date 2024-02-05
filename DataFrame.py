@@ -5,6 +5,17 @@ data = {'Name': ['Alice', 'Bob', 'Charlie'],
         'City': ['New York', 'San Francisco', 'Los Angeles']}
 df = pd.DataFrame(data)
 
+df1 = pd.DataFrame({'ID': [1, 2, 3], 'Name': ['Alice', 'Bob', 'Charlie']})
+df2 = pd.DataFrame({'ID': [2, 3, 4], 'Salary': [60000, 70000, 80000]})
+merged_df = pd.merge(df1, df2, on='ID')
+
+#numeric_columns = df.select_dtypes(include=['number']).columns
+#grouped = df.groupby('Age')[numeric_columns].mean()
+
+# 문자열 데이터에 대해서는 최빈값 계산
+non_numeric_columns = df.select_dtypes(exclude=['number']).columns
+grouped = df.groupby('Age')[non_numeric_columns].agg(lambda x: x.mode().iloc[0] if not x.mode().empty else None)
+
 # 열 선택
 #print(df['Name'])
 
@@ -23,4 +34,5 @@ df = df.drop('City', axis=1)
 # 데이터 정렬
 df = df.sort_values(by='Age')
 
-print(df)
+#print(df)
+print(grouped)
